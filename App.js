@@ -70,4 +70,26 @@ about each githubber which is desired.
       </ul>
     )
   }
+/*
+  This function is essential to create the pie chart
+  as it removes all duplicates where a language is used
+  in another repository.
+ */
+  listOfLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
 
+    return(langsUnique)
+  }
+
+  renderLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
+    var arrayLength = langsUnique.length;
+    const size=[];
+    {this.state.languages.map(language => (size.push(language.size)))};
+    const subA = size.slice(0,arrayLength);
+    return(subA)
+  }
