@@ -93,3 +93,50 @@ about each githubber which is desired.
     const subA = size.slice(0,arrayLength);
     return(subA)
   }
+   /*
+  RenderInfo() contains all popup buttons.
+ */
+
+  renderInfo() {
+    return (
+      <div className='renders'>
+        <p> <UserIcon src={this.state.avatar} alt="this.name" /></p>
+        <p>{this.state.name} | {this.state.id}</p>
+
+
+
+        <div className='chart'>
+        <Popup scrolling="yes" trigger={<button className="button"> Followers vs Following </button>} modal closeOnDocumentClick>
+          <div>
+
+          <div><Chart chartData={this.state.chartData}/></div>
+
+          <p>Since joining Github, this user has gained {this.state.followers} followers
+          and has followed {this.state.following}.</p>
+          </div>
+        </Popup>
+        </div>
+
+
+        <div className='repos'>
+        <Popup  trigger={<button className="button"> Repos List </button>} modal closeOnDocumentClick>
+          <div>
+            List of Repositories
+          {this.state.repos ? this.renderList() : null}
+          </div>
+        </Popup>
+        </div>
+
+
+        <div className='languages'>
+        <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
+          <div>
+          <div><PieChart pieChartData={this.state.pieChartData}/></div>
+
+          <p>This user's languages consist of {this.listOfLanguages()}</p>
+          </div>
+        </Popup>
+        </div>
+      </div>
+    );
+  }
