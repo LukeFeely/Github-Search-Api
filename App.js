@@ -140,3 +140,14 @@ about each githubber which is desired.
       </div>
     );
   }
+
+
+export default App;
+
+const UserIcon = styled('img')`
+    position: 50px 700px;
+    width: 350px;
+    height: 350px;
+    `
+
+
