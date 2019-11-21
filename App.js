@@ -118,16 +118,19 @@ about each githubber which is desired.
         </div>
 
 
-        <div className='repos'>
-        <Popup  trigger={<button className="button"> Repos List </button>} modal closeOnDocumentClick>
+
+
+        <div className='chart'>
+        <Popup scrolling="yes" trigger={<button className="button"> Followers vs Following </button>} modal closeOnDocumentClick>
           <div>
-            List of Repositories
-          {this.state.repos ? this.renderList() : null}
+
+          <div><Chart chartData={this.state.chartData}/></div>
+
+          <p>Since joining Github, this user has gained {this.state.followers} followers
+          and has followed {this.state.following}.</p>
           </div>
         </Popup>
         </div>
-
-
         <div className='languages'>
         <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
           <div>
