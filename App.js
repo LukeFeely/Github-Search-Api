@@ -117,7 +117,21 @@ about each githubber which is desired.
         </Popup>
         </div>
 
+  getPieChartData(){
+    const labelLangs = this.listOfLanguages()
+    const dataLangs = this.renderLanguages()
 
+    this.setState({
+      pieChartData:{
+        labels: labelLangs,
+        datasets: [{
+            label:'',
+            backgroundColor: ['#f1c40f','#e67e22','#16a085','#2980b9','#DC143C', '#9932CC', '#808000','#D8BFD8','#F4A460','#FF0000'],
+            data: dataLangs
+        }]
+    }
+    })
+  }
 
 
         <div className='chart'>
