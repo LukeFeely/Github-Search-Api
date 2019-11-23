@@ -133,6 +133,26 @@ about each githubber which is desired.
     })
   }
 
+    getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+   renderLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
+    var arrayLength = langsUnique.length;
+    const size=[];
+    {this.state.languages.map(language => (size.push(language.size)))};
+    const subA = size.slice(0,arrayLength);
+    return(subA)
+  }
+
 
         <div className='chart'>
         <Popup scrolling="yes" trigger={<button className="button"> Followers vs Following </button>} modal closeOnDocumentClick>
