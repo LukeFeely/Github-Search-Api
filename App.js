@@ -87,17 +87,7 @@ about each githubber which is desired.
     const arr = [];
     {this.state.languages.map(language => (arr.push(language.language)))};
     var langsUnique = ([...new Set(arr)]);
-    var arrayLength = langsUnique.length;
-    const size=[];
-    {this.state.languages.map(language => (size.push(language.size)))};
-    const subA = size.slice(0,arrayLength);
-    return(subA)
-  }
-   /*
-  RenderInfo() contains all popup buttons.
- */
-
-  renderInfo() {
+    var arenderInfo() {
     return (
       <div className='renders'>
         <p> <UserIcon src={this.state.avatar} alt="this.name" /></p>
@@ -117,8 +107,29 @@ about each githubber which is desired.
         </Popup>
         </div>
 
-  getPieChartData(){
-    const labelLangs = this.listOfLanguages()
+
+        <div className='repos'>
+        <Popup  trigger={<button className="button"> Repos List </button>} modal closeOnDocumentClick>
+          <div>
+            List of Repositories
+          {this.state.repos ? this.renderList() : null}
+          </div>
+        </Popup>
+        </div>
+
+
+        <div className='languages'>
+        <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
+          <div>
+          <div><PieChart pieChartData={this.state.pieChartData}/></div>
+
+          <p>This user's languages consist of {this.listOfLanguages()}</p>
+          </div>
+        </Popup>
+        </div>
+      </div>
+    );
+  }tOfLanguages()
     const dataLangs = this.renderLanguages()
 
     this.setState({
