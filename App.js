@@ -108,14 +108,6 @@ about each githubber which is desired.
         </div>
 
 
-        <div className='repos'>
-        <Popup  trigger={<button className="button"> Repos List </button>} modal closeOnDocumentClick>
-          <div>
-            List of Repositories
-          {this.state.repos ? this.renderList() : null}
-          </div>
-        </Popup>
-        </div>
 
 
         <div className='languages'>
@@ -153,16 +145,20 @@ about each githubber which is desired.
     return color;
   }
 
-   renderLanguages(){
-    const arr = [];
-    {this.state.languages.map(language => (arr.push(language.language)))};
-    var langsUnique = ([...new Set(arr)]);
-    var arrayLength = langsUnique.length;
-    const size=[];
-    {this.state.languages.map(language => (size.push(language.size)))};
-    const subA = size.slice(0,arrayLength);
-    return(subA)
-  }
+
+        <div className='languages'>
+        <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
+          <div>
+          <div><PieChart pieChartData={this.state.pieChartData}/></div>
+
+          <p>This user's languages consist of {this.listOfLanguages()}</p>
+          </div>
+        </Popup>
+        </div>
+      </div>
+    );
+
+
 
 
         <div className='chart'>
@@ -184,6 +180,20 @@ about each githubber which is desired.
           <p>This user's languages consist of {this.listOfLanguages()}</p>
           </div>
         </Popup>
+
+
+        <div className='languages'>
+        <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
+          <div>
+          <div><PieChart pieChartData={this.state.pieChartData}/></div>
+
+          <p>This user's languages consist of {this.listOfLanguages()}</p>
+          </div>
+        </Popup>
+        </div>
+      </div>
+    );
+
         </div>
       </div>
     );
